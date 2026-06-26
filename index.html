@@ -47,9 +47,21 @@
     <div class="spinner"></div>
   </div>
   <iframe
+    id="main-frame"
     src="https://script.google.com/macros/s/AKfycbxswix_Fiv02gR2150bRSU6HVAYWUNn_bc4qA54XSUptFcS5uj9a8HQHwAdQ5avdHth/exec"
     onload="document.getElementById('loading').classList.add('fade')"
     allowfullscreen>
   </iframe>
+  <script>
+    var loaded = false;
+    document.getElementById('main-frame').addEventListener('load', function() {
+      loaded = true;
+    });
+    setTimeout(function() {
+      if (!loaded) {
+        location.reload();
+      }
+    }, 5000);
+  </script>
 </body>
 </html>
